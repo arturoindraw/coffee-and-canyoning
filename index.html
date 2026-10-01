@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee & Canyoning | Aventura Extrema en Santa Rosa de Cabal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-coral: #FF5F4A;
+            --primary-dark: #E54A35;
+            --secondary: #1A1A1A;
+            --accent-gold: #FFD700;
+            --nature-green: #2D5016;
+            --water-blue: #4A90A4;
+            --text-light: #FFFFFF;
+            --text-dark: #2C2C2C;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--secondary);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Custom Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        @keyframes waterfall {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+
+        @keyframes shake-bell {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .floating-card {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-card::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 10%;
+            width: 80%;
+            height: 20px;
+            background: radial-gradient(ellipse, rgba(74, 144, 164, 0.3), transparent);
+            filter: blur(10px);
+        }
+
+        .waterfall-bg {
+            background-image: url('/images/gallery/i-2.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .coral-glow {
+            box-shadow: 0 0 25px rgba(255, 95, 74, 0.5);
+        }
+
+        .coral-glow:hover {
+            box-shadow: 0 0 40px rgba(255, 95, 74, 0.8);
+        }
+
+        .btn-coral {
+            background: linear-gradient(135deg, #FF5F4A, #E54A35);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Chat Specifics */
+        .chat-window {
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .chat-messages::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--primary-coral);
+            border-radius: 10px;
+        }
+
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            background: var(--primary-coral);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: typing 1.4s infinite;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.7; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
